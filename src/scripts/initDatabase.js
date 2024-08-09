@@ -93,13 +93,13 @@ const initDatabase = async () => {
     const adminExists = await User.findOne({ where: { isAdmin: true } });
 
     if (!adminExists) {
-      const adminPassword = await bcrypt.hash('AdminPassword123!', 10);
+      // const adminPassword = await bcrypt.hash('AdminPassword123!', 10);
 
       const admin = await User.create({
         name: 'Admin',
         lastName: 'User',
         email: 'admin@example.com',
-        password: adminPassword,
+        password: 'AdminPassword123!',
         mobilePhone: '+1234567890',
         isAdmin: true,
         passwordChangeRequired: false
